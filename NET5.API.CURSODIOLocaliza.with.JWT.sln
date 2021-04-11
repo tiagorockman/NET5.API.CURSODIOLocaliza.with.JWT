@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET5.API.CURSODIOLocaliza.with.JWT", "NET5.API.CURSODIOLocaliza.with.WJT\NET5.API.CURSODIOLocaliza.with.JWT.csproj", "{D955B7BE-4433-4388-A9D8-1530237F918A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5.API.CURSODIOLocaliza.with.JWT", "NET5.API.CURSODIOLocaliza.with.JWT\NET5.API.CURSODIOLocaliza.with.JWT.csproj", "{10EDAC2B-1D40-4DD3-92AE-17CEED6A6DAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D955B7BE-4433-4388-A9D8-1530237F918A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D955B7BE-4433-4388-A9D8-1530237F918A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D955B7BE-4433-4388-A9D8-1530237F918A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D955B7BE-4433-4388-A9D8-1530237F918A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10EDAC2B-1D40-4DD3-92AE-17CEED6A6DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10EDAC2B-1D40-4DD3-92AE-17CEED6A6DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10EDAC2B-1D40-4DD3-92AE-17CEED6A6DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10EDAC2B-1D40-4DD3-92AE-17CEED6A6DAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0211EDB3-7F60-480B-B8ED-155B1B3C397F}
+		SolutionGuid = {8BC9DD8F-A821-42BC-9089-E80D317FD938}
 	EndGlobalSection
 EndGlobal

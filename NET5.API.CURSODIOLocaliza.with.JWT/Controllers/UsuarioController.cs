@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using NET5.API.CURSODIOLocaliza.with.JWT.Business.Entities;
 using NET5.API.CURSODIOLocaliza.with.JWT.Filters;
+using NET5.API.CURSODIOLocaliza.with.JWT.Infraestruture.Data;
 using NET5.API.CURSODIOLocaliza.with.JWT.Models;
 using NET5.API.CURSODIOLocaliza.with.JWT.Models.Usuarios;
 using Swashbuckle.AspNetCore.Annotations;
@@ -68,11 +71,33 @@ namespace NET5.API.CURSODIOLocaliza.with.JWT.Controllers
             });
         }
 
+        [SwaggerResponse(statusCode: 200, description: "Sucesso ao autenticar", Type = typeof(LoginViewModelInput))]
+        [SwaggerResponse(statusCode: 400, description: "Campos obrigatórios", Type = typeof(ValidaCampoModel))]
+        [SwaggerResponse(statusCode: 500, description: "Erro Interno", Type = typeof(ErroGenericoModel))]
         [HttpPost]
+        [Route("registrar")]
         [ValidacaoModelStateCustomizado]
-        public IActionResult Registrar(LoginModel loginViewInput)
+        public IActionResult Registrar(LoginViewModelInput loginInput)
         {
-            return Created("", loginViewInput);
+
+            var optionsBuilder = new DbContextOptionsBuilder<CursoDbContext>();
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CursoNet5Api;Integrated Security=True");
+            CursoDbContext contexto = new CursoDbContext(optionsBuilder.Options);
+
+            var migracoesPendentes = contexto.Database.GetPendingMigrations(); //Verifica se existe migrações pendentes
+            if(migracoesPendentes.Count() > 0)
+            {
+                contexto.Database.Migrate();
+            }
+            var usuario = new Usuario();
+            usuario.Login = loginInput.Login;
+            usuario.Senha = loginInput.Senha;
+            usuario.Email = loginInput.Email;
+
+            //contexto.Usuario.Add(usuario);
+            //contexto.SaveChanges();
+
+            return Created("", loginInput);
         }
     }
 }

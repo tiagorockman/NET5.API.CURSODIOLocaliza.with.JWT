@@ -8,6 +8,7 @@ namespace NET5.API.CURSODIOLocaliza.with.JWT.Configurations
     {
         public CursoDbContext CreateDbContext(string[] args)
         {
+            //A implementação foi feita no Startup, essa classe não foi utilizada
             //Conecta na base cria uma instancia e retorna o contexto
             var optionsBuilder = new DbContextOptionsBuilder<CursoDbContext>();
             optionsBuilder.UseSqlServer("Server=localhost;Database=Curso;user=sa;passwdord=1234");

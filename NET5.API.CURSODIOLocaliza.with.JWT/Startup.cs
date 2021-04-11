@@ -3,12 +3,17 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using NET5.API.CURSODIOLocaliza.with.JWT.Business.Repository;
+using NET5.API.CURSODIOLocaliza.with.JWT.Configurations;
+using NET5.API.CURSODIOLocaliza.with.JWT.Infraestruture.Data;
+using NET5.API.CURSODIOLocaliza.with.JWT.Infraestruture.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,6 +87,12 @@ namespace NET5.API.CURSODIOLocaliza.with.JWT
                     ValidateAudience = false
                 };
             });
+
+            services.AddDbContext<CursoDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddScoped<Abstração, Implementação>(); --- Assim conseguimos fazer a inversão de controle
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<ICursoRepository, CursoRepository>();
+            services.AddScoped<IAuthenticationServiceCustom, JWTService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

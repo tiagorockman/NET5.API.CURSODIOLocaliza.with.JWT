@@ -24,5 +24,7 @@ namespace NET5.API.CURSODIOLocaliza.with.JWT.Infraestruture.Data
         }
 
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Curso> Curso { get; set; }
+
     }
 }

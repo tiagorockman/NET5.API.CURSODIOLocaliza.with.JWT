@@ -98,8 +98,9 @@ namespace NET5.API.CURSODIOLocaliza.with.JWT
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-            app.UseAuthorization();
+    
 
             app.UseEndpoints(endpoints =>
             {
